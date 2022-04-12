@@ -1,5 +1,7 @@
 ﻿using System.Web;
 using Xamarin.Forms;
+using News.Models;
+using News.Services;
 
 namespace News.Views
 {
@@ -9,7 +11,8 @@ namespace News.Views
         public ArticleView()
         {
             InitializeComponent();
-         }
+           
+        }
         public ArticleView(string Url)
         {
             InitializeComponent();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using News.Services;
 using News.Models;
 
 namespace News.Views
@@ -15,9 +15,14 @@ namespace News.Views
  
     public partial class MainPage : TabbedPage
     {
+        
         public MainPage()
-        {
+        { 
+          var  services = new NewsService();
             InitializeComponent();
+            
+           
+            //TabbedPage = MenuItemsListView;
 
         }
     }

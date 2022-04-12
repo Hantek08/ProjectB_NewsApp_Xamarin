@@ -13,6 +13,7 @@ namespace News.Views
         public AboutPage()
         {
             InitializeComponent();
+
         }
     }
 }

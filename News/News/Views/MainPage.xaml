@@ -7,5 +7,15 @@
     <TabbedPage.Children>
         <views:AboutPage />
         <views:ConsolePage />
+        <views:ArticleView Title="business"></views:ArticleView>
+        <views:ArticleView Title="entertainment"></views:ArticleView>
+        <views:ArticleView Title="general"></views:ArticleView>
+        <views:ArticleView Title="health"></views:ArticleView>
+        <views:ArticleView Title="science"></views:ArticleView>
+        <views:ArticleView Title="sports"></views:ArticleView>
+        <views:ArticleView Title="technology"></views:ArticleView>
+       
+        
+
     </TabbedPage.Children>
 </TabbedPage>
