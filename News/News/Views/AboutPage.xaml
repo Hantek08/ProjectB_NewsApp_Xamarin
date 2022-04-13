@@ -5,7 +5,7 @@
              Title="About News">
 
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+        <Frame BackgroundColor="#0F2557" Padding="24" CornerRadius="0">
             <Label Text="Project Part B" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
         <Label Text="News in Xamarin.Forms" FontSize="Title" Padding="30,10,30,10"/>
@@ -17,7 +17,7 @@
             <Label.FormattedText>
                 <FormattedString>
                     <FormattedString.Spans>
-                        <Span Text="Martin Lenart"/>
+                        <Span Text="Sahar Ali Abdou"/>
                     </FormattedString.Spans>
                 </FormattedString>
             </Label.FormattedText>

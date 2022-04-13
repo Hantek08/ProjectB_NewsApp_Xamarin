@@ -2,9 +2,9 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:News.Views" 
-             x:Class="News.Views.MainPage">
+             x:Class="News.Views.MainPage" BarBackground="#0F2557" SelectedTabColor="red" UnselectedTabColor="White">
   <!--Pages can be added as references or inline-->
-    <TabbedPage.Children>
+    <TabbedPage.Children >
         <views:AboutPage />
         <views:ConsolePage />
         <views:ArticleView Title="business"></views:ArticleView>
