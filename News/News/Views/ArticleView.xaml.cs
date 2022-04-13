@@ -80,32 +80,16 @@ namespace News.Views
             await LoadNews();
       }
 
-        private void WebView_Navigated(object sender, WebNavigatedEventArgs e)
-        {
+       
 
-            if (e.Url != null)
-            {
-                NewsListView.SelectedItem= null;
-                Navigation.PushAsync(new ArticleView
-                {
-                    BindingContext = e.Url
-                });
-            }
+        private async void webview_Navigating(object sender, WebNavigatingEventArgs e)
+        {
+            
+           var Url = e.Url;
+
+            await Navigation.PushAsync(new ArticleView(Url));
 
         }
-        private async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs args)
-        {
-           
-            if (args.SelectedItem != null)
-            {
-                NewsListView.SelectedItem = null;
-                await Navigation.PushAsync(new ArticleView
-                {
-                    BindingContext = args.SelectedItem
-                });
-            }
-        }
-
     }
    
 }
