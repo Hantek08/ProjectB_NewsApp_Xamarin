@@ -1,54 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="News.Views.NewsPage">
+             x:Class="News.Views.NewsPage"
+             Title="News Headlines">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#0F2557">
             <Button Text="Refresh"
                     Clicked="refresh"/>
 
             <ListView x:Name= "NewsListView"
-                      IsGroupingEnabled="True"
-                    HasUnevenRows="True" ItemTapped="NewsListView_ItemTapped">
-            
-                    <ListView.GroupHeaderTemplate>
-                
-                <DataTemplate>
-                        <ViewCell Height="40">
+               ItemTapped="NewsListView_ItemTapped">
 
-                            <StackLayout
-                            HorizontalOptions="FillAndExpand"
-                            HeightRequest="5"
-                            BackgroundColor="#0F2557"
-                            Padding="5"
-                            Orientation="Horizontal">
-                                <Image  Source="{Binding UrlToImage}" />
-                                <Label
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
 
-                                FontSize="20"
-                                TextColor="#FFF"
-                                VerticalOptions="Center"
-                                FontAttributes="Bold"
-                                
-                                Text="{Binding Title}"/>
+                            <Frame BackgroundColor="#2197C7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="450" HeightRequest="200" CornerRadius="10" Margin="20,10,20,10">
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
 
-                                
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
 
-
-                           <Label Text="{Binding DateTime, StringFormat='{0:dddd, dd MMMM yyyy hh:mm:ss tt}' }"/>
-                                   
+                                    <Label Grid.Row="0" Grid.Column="0"  Text="{Binding DateTime, StringFormat='{0:dddd, dd MMMM yyyy hh:mm:ss tt}'}" FontSize="15" TextColor="#FFF"/>
+                                    <Label Grid.Row="1" Grid.Column="0"  Text="{Binding Title}" FontSize="20" FontAttributes="Bold" TextColor="#FFF"/>
+                                    <Label Grid.Row="2" Grid.Column="0"  Text="{Binding Description}" FontSize="15" TextColor="#FFF"/>
+                                    <Image Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4" WidthRequest="175" HeightRequest="175" VerticalOptions="Start" HorizontalOptions="Start" Source="{Binding UrlToImage}" />
 
 
-                               
+                                </Grid>
 
-
-                            </StackLayout>
-
+                            </Frame> 
+                            
+                            
+                           
+                            
                         </ViewCell>
                     </DataTemplate>
-
-                </ListView.GroupHeaderTemplate>
-               
+                </ListView.ItemTemplate>
 
 
             </ListView>
