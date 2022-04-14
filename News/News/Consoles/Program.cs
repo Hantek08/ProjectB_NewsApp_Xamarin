@@ -39,45 +39,45 @@ namespace News.Consoles
             Task<NewsGroup> t1 = null, t2 = null;
             Exception exception = null;
 
-            //try
-            //{
-            //    for (NewsCategory i = NewsCategory.business; i < NewsCategory.technology + 1; i++)
-            //    {
-            //        t1 = service.GetNewsAsync(i);
+            try
+            {
+                for (NewsCategory i = NewsCategory.business; i < NewsCategory.technology + 1; i++)
+                {
+                   t1 = service.GetNewsAsync(i);
 
-            //    }
-            //    Task.WaitAll(t1);
+                }
+                Task.WaitAll(t1);
 
-            //    for (NewsCategory i = NewsCategory.business; i < NewsCategory.technology + 1; i++)
-            //    {
-            //        t2 = service.GetNewsAsync(i);
+                for (NewsCategory i = NewsCategory.business; i < NewsCategory.technology + 1; i++)
+               {
+                    t2 = service.GetNewsAsync(i);
 
-            //    }
-            //    Task.WaitAll(t2);
-            //}
-            //catch (Exception ex)
-            //{
+                }
+                Task.WaitAll(t2);
+            }
+            catch (Exception ex)
+            {
 
-            //    exception = ex;
-            //}
-            //Console.WriteLine("---------------------------");
-            //for (NewsCategory i = NewsCategory.business; i < NewsCategory.technology + 1; i++)
-            //{
+               exception = ex;
+            }
+            Console.WriteLine("---------------------------");
+            for (NewsCategory i = NewsCategory.business; i < NewsCategory.technology + 1; i++)
+            {
 
-            //    Console.WriteLine($"News in Category {i}");
-            //    if (t1?.Status == TaskStatus.RanToCompletion)
-            //    {
-            //        NewsGroup news = t1.Result;
+                Console.WriteLine($"News in Category {i}");
+                if (t1?.Status == TaskStatus.RanToCompletion)
+                {
+                    NewsGroup news = t1.Result;
 
-            //        news.Articles.ForEach(a => Console.WriteLine($" - {a.DateTime.ToString("yyyy-MM-dd HH:mm")}\t: {a.Title}"));
+                    news.Articles.ForEach(a => Console.WriteLine($" - {a.DateTime.ToString("yyyy-MM-dd HH:mm")}\t: {a.Title}"));
 
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine($"Geolocation News service error.");
-            //    }
+               }
+                else
+                {
+                    Console.WriteLine($"Geolocation News service error.");
+                }
 
-            //}
+            }
      
 
         }

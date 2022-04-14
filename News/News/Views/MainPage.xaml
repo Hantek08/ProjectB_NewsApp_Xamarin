@@ -7,14 +7,16 @@
     <TabbedPage.Children >
         <views:AboutPage />
         <views:ConsolePage />
-        <views:ArticleView Title="business"></views:ArticleView>
-        <views:ArticleView Title="entertainment"></views:ArticleView>
-        <views:ArticleView Title="general"></views:ArticleView>
-        <views:ArticleView Title="health"></views:ArticleView>
-        <views:ArticleView Title="science"></views:ArticleView>
-        <views:ArticleView Title="sports"></views:ArticleView>
-        <views:ArticleView Title="technology"></views:ArticleView>
-       
+        <views:NewsPage Title="business"></views:NewsPage>
+        <views:NewsPage Title="entertainment"></views:NewsPage>
+
+        <views:NewsPage Title="general"></views:NewsPage>
+        <views:NewsPage Title="health"></views:NewsPage>
+        <views:NewsPage Title="science"></views:NewsPage>
+        <views:NewsPage Title="sports"></views:NewsPage>
+        <views:NewsPage Title="technology"></views:NewsPage>
+        
+            
         
 
     </TabbedPage.Children>

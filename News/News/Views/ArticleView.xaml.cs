@@ -17,15 +17,11 @@ namespace News.Views
     public partial class ArticleView : ContentPage
     {
         //Here is where you show the news in Full page
-        NewsService service;
-        NewsGroup newsgroup;
-       
+        
         public ArticleView()
         {
             InitializeComponent();
-            service = new NewsService();
-            newsgroup = new NewsGroup();
-
+            
 
             
         }
@@ -42,54 +38,10 @@ namespace News.Views
             
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            //Code here will run right before the screen appears
-            //You want to set the Title or set the City
-
-            //This is making the first load of data
-
-            MainThread.BeginInvokeOnMainThread(async () => { await LoadNews(); });
-
-        }
-
-
-            private async Task LoadNews()
-        {
-            //Heare you load the forecast 
-            NewsGroup t1 = await service.GetNewsAsync(Title);
-
-
-
-            {
-
-                //t1.Items.ForEach(x => x.Icon = $"http://openweathermap.org/img/wn/{x.Icon}@2x.png");
-
-
-                NewsListView.ItemsSource = t1.Articles.GroupBy(x => x.Title);
-
-                //NewsListView.BindingContext = t1.Articles.GroupBy(x => x.Title);
-            }
-
-        }
-       
-        private async void refresh(object sender,EventArgs args)
-        {
-            await LoadNews();
-      }
-
+        
        
 
-        private async void webview_Navigating(object sender, WebNavigatingEventArgs e)
-        {
-            
-           var Url = e.Url;
-
-            await Navigation.PushAsync(new ArticleView(Url));
-
-        }
+       
     }
    
 }

@@ -41,11 +41,11 @@ namespace News.Services
         public EventHandler<string> NewsAvailable;
         HttpClient httpClient = new HttpClient();
        readonly string apiKey = "3cf18a22fddb446a81eceb8de3065438";
-        public async Task<NewsGroup> GetNewsAsync(string Titel)
+        public async Task<NewsGroup> GetNewsAsync(NewsCategory category)
         {
            // NewsApiData nd = await NewsApiSampleData.GetNewsApiSampleAsync(category);
 
-            var uri = $"https://newsapi.org/v2/top-headlines?country=se&category={Titel}&apiKey={apiKey}";
+            var uri = $"https://newsapi.org/v2/top-headlines?country=se&category={category}&apiKey={apiKey}";
 
            HttpResponseMessage response = await httpClient.GetAsync(uri);
             response.EnsureSuccessStatusCode();
@@ -59,7 +59,7 @@ namespace News.Services
 
             nd.Articles.ForEach(a => { news.Articles.Add(GetNewsItem(a)); });
 
-            OnNewsAvailable($"News in category availble:{Titel}");
+            OnNewsAvailable($"News in category availble:{category}");
 
 
             return news;
