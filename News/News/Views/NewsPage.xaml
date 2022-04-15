@@ -13,15 +13,18 @@
                Text="All tasks are completed!"
                />
             
+            <Label x:Name="categoryName" FontSize="Header" Scale="0.5" TextColor ="WhiteSmoke" ></Label>
+
             <ActivityIndicator x:Name="SlowConnection"
                                Color="#FFF"></ActivityIndicator>
                                    <ListView x:Name= "NewsListView"
                ItemTapped="NewsListView_ItemTapped" IsGroupingEnabled="False">
                 
                 <ListView.ItemTemplate>
+                    
                     <DataTemplate>
                         <ViewCell>
-
+                            
                             <Frame BackgroundColor="#2197C7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="450" HeightRequest="200" CornerRadius="10" Margin="20,10,20,10">
                                 <Grid >
                                     <Grid.RowDefinitions>

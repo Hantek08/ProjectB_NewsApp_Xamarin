@@ -41,6 +41,7 @@ namespace News.Services
         public EventHandler<string> NewsAvailable;
         HttpClient httpClient = new HttpClient();
        readonly string apiKey = "3cf18a22fddb446a81eceb8de3065438";
+      
         public async Task<NewsGroup> GetNewsAsync(NewsCategory category)
         {
            // NewsApiData nd = await NewsApiSampleData.GetNewsApiSampleAsync(category);

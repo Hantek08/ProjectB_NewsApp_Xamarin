@@ -28,6 +28,7 @@ namespace News.Views
             UpdateUiState();
             service = new NewsService();    
             newsgroup = new NewsGroup();
+            
         }
 
         protected override void OnAppearing()
@@ -35,7 +36,7 @@ namespace News.Views
             base.OnAppearing();
 
             //Code here will run right before the screen appears
-            //You want to set the Title or set the City
+            
 
             //This is making the first load of data
 
@@ -45,6 +46,8 @@ namespace News.Views
                {
 
                     await LoadNews();
+                    categoryName.Text = $"News Headline for {Title} available";
+
 
                 }
 
@@ -57,15 +60,13 @@ namespace News.Views
 
 
             });
-            //MainThread.BeginInvokeOnMainThread(async () => { await LoadNews(); });
-
+            
 
         }
         private async Task LoadNews()
         {
-            //Heare you load the forecast 
-            //NewsGroup t1 = await service.GetNewsAsync(Title);
-            NewsCategory nCat = (NewsCategory)Enum.Parse(typeof(NewsCategory), Title);
+            
+             NewsCategory nCat = (NewsCategory)Enum.Parse(typeof(NewsCategory), Title);
             await Task.Run(() =>
             {
                 Task<NewsGroup> t1 = service.GetNewsAsync(nCat);
