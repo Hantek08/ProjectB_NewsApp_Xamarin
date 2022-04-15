@@ -97,6 +97,7 @@ namespace News.Views
 
         private void Connection_Clicked(object sender, EventArgs e)
         {
+          
             isTaskRunning = !isTaskRunning;
             UpdateUiState();
         }

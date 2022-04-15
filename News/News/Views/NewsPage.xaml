@@ -6,24 +6,18 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="#0F2557">
             <Button Text="Refresh"
-                    Clicked="refresh"/>
+                    Clicked="refresh" TextColor="WhiteSmoke"/>
 
-            <Button Text="Connection" Clicked="Connection_Clicked"></Button>
+            <Button Text="Connection" Clicked="Connection_Clicked" TextColor="WhiteSmoke"></Button>
             <Label x:Name="runningStatusLabel"
                Text="All tasks are completed!"
                />
             
             <ActivityIndicator x:Name="SlowConnection"
                                Color="#FFF"></ActivityIndicator>
-            
-
-
-                
-           
-
-            <ListView x:Name= "NewsListView"
+                                   <ListView x:Name= "NewsListView"
                ItemTapped="NewsListView_ItemTapped" IsGroupingEnabled="False">
-
+                
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

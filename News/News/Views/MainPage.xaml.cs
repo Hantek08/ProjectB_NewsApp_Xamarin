@@ -20,28 +20,9 @@ namespace News.Views
           
             InitializeComponent();
 
-            //this.Children.Add(new ArticleView());
-            //Routing.RegisterRoute("articleview" ,typeof(NewsPage));
-            
-
         }
 
-        //private void CurrentPageHasChanged(object sender, EventArgs e) => Title = CurrentPage.Title;
-
-        //protected override void OnAppearing()
-        //{
-        //   base.OnAppearing();
-
-        //   //Code here will run right before the screen appears
-        //   //You want to set the Title or set the City
-
-        //    //This is making the first load of data
-           
-
-        //    Title = CurrentPage.Title;
-
-        //}
-
+ 
        
 
     }
