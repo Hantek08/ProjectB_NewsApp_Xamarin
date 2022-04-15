@@ -1,15 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="News.Views.NewsPage"
-             Title="News Headlines">
+             x:Class="News.Views.NewsPage">
+
     <ContentPage.Content>
         <StackLayout BackgroundColor="#0F2557">
             <Button Text="Refresh"
                     Clicked="refresh"/>
 
+            <Button Text="Connection" Clicked="Connection_Clicked"></Button>
+            <Label x:Name="runningStatusLabel"
+               Text="All tasks are completed!"
+               />
+            
+            <ActivityIndicator x:Name="SlowConnection"
+                               Color="#FFF"></ActivityIndicator>
+            
+
+
+                
+           
+
             <ListView x:Name= "NewsListView"
-               ItemTapped="NewsListView_ItemTapped">
+               ItemTapped="NewsListView_ItemTapped" IsGroupingEnabled="False">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>

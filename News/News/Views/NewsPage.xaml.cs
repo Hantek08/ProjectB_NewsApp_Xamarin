@@ -20,10 +20,12 @@ namespace News.Views
     {
         NewsService service;
         NewsGroup newsgroup;
+        bool isTaskRunning;
 
         public NewsPage()
         {
             InitializeComponent();
+            UpdateUiState();
             service = new NewsService();    
             newsgroup = new NewsGroup();
         }
@@ -85,11 +87,25 @@ namespace News.Views
             await LoadNews();
         }
 
+       
         private async void NewsListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var newsPage = (NewsItem)e.Item;
             await Navigation.PushAsync(new ArticleView(newsPage.Url));
 
+        }
+
+        private void Connection_Clicked(object sender, EventArgs e)
+        {
+            isTaskRunning = !isTaskRunning;
+            UpdateUiState();
+        }
+
+        void UpdateUiState()
+        {
+            runningStatusLabel.Text = isTaskRunning ? "A task is in progress." : "All tasks complete!";
+            SlowConnection.IsRunning = isTaskRunning;
+            
         }
     }
 }
