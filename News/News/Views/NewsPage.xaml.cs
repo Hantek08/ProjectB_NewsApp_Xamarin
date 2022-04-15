@@ -103,7 +103,7 @@ namespace News.Views
 
         void UpdateUiState()
         {
-            runningStatusLabel.Text = isTaskRunning ? "A task is in progress." : "All tasks complete!";
+            runningStatusLabel.Text = isTaskRunning ? "Slow internet connection." : "Now you are connected!";
             SlowConnection.IsRunning = isTaskRunning;
             
         }
