@@ -39,11 +39,14 @@ namespace News.Services
         */
 
         public EventHandler<string> NewsAvailable;
-        HttpClient httpClient = new HttpClient();
+        
+        HttpClient httpClient = new HttpClient(); 
+    
        readonly string apiKey = "3cf18a22fddb446a81eceb8de3065438";
       
         public async Task<NewsGroup> GetNewsAsync(NewsCategory category)
         {
+            
            // NewsApiData nd = await NewsApiSampleData.GetNewsApiSampleAsync(category);
 
             var uri = $"https://newsapi.org/v2/top-headlines?country=se&category={category}&apiKey={apiKey}";
@@ -64,24 +67,30 @@ namespace News.Services
 
 
             return news;
+            
+        
 
         }
         private async Task<NewsGroup> ReadNewsApiAsync(string uri)
         {
-            HttpResponseMessage response = await httpClient.GetAsync(uri);
-            response.EnsureSuccessStatusCode();
+            
+            
+                HttpResponseMessage response = await httpClient.GetAsync(uri);
+                response.EnsureSuccessStatusCode();
 
-            NewsApiData nd = await response.Content.ReadFromJsonAsync<NewsApiData>();
+                NewsApiData nd = await response.Content.ReadFromJsonAsync<NewsApiData>();
 
-            NewsGroup news = new NewsGroup();
+                NewsGroup news = new NewsGroup();
 
-            news.Articles = new List<NewsItem>();
+                news.Articles = new List<NewsItem>();
 
-            nd.Articles.ForEach(a => { news.Articles.Add(GetNewsItem(a)); });
+                nd.Articles.ForEach(a => { news.Articles.Add(GetNewsItem(a)); });
 
-            return news;
+                return news;
+            }
 
-        }
+
+        
 
 
         protected virtual void OnNewsAvailable(string c)

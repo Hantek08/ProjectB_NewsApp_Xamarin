@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="News.Views.AboutPage"
              Title="About News">
-
-    <StackLayout BackgroundColor="#2197C7">
+    <AbsoluteLayout>
+        <Image x:Name="NewsPhoto" Source="NewsPhoto" Opacity="0.6"></Image>
+        <StackLayout>
         <Frame BackgroundColor="#0F2557" Padding="24" CornerRadius="0">
             <Label Text="Project Part B" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
@@ -23,5 +24,5 @@
             </Label.FormattedText>
         </Label>
     </StackLayout>
-
+    </AbsoluteLayout>
 </ContentPage>
