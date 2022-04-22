@@ -7,7 +7,7 @@ namespace News.Models
 {
     public enum NewsCategory
     {
-        business, entertainment, general, health, science, sports, technology
+        Business, Entertainment, General, Health, Science, Sports, Technology
     }
     public class NewsCacheKey
     {

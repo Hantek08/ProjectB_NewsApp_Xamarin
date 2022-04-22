@@ -16,33 +16,11 @@ namespace News.Services
     public class NewsService
     {
 
-        //Here is where you lift in your Service code from Part A
-        /*
-                public async Task<NewsGroup> GetNewsAsync(NewsCategory category)
-                {
-
-        #if UseNewsApiSample      
-                    NewsApiData nd = await NewsApiSampleData.GetNewsApiSampleAsync(category);
-
-        #else
-                    //https://newsapi.org/docs/endpoints/top-headlines
-                    var uri = $"https://newsapi.org/v2/top-headlines?country=se&category={category}&apiKey={apiKey}";
-
-
-                    //Recommend to use Newtonsoft Json Deserializer as it works best with Android
-                    var webclient = new WebClient();
-                    var json = await webclient.DownloadStringTaskAsync(uri);
-                    NewsApiData nd = Newtonsoft.Json.JsonConvert.DeserializeObject<NewsApiData>(json);
-
-        #endif
-
-        */
-
         public EventHandler<string> NewsAvailable;
         
         HttpClient httpClient = new HttpClient(); 
     
-       readonly string apiKey = "3cf18a22fddb446a81eceb8de3065438";
+       readonly string apiKey = "d318329c40734776a014f9d9513e14ae";
       
         public async Task<NewsGroup> GetNewsAsync(NewsCategory category)
         {
@@ -71,27 +49,7 @@ namespace News.Services
         
 
         }
-        private async Task<NewsGroup> ReadNewsApiAsync(string uri)
-        {
-            
-            
-                HttpResponseMessage response = await httpClient.GetAsync(uri);
-                response.EnsureSuccessStatusCode();
-
-                NewsApiData nd = await response.Content.ReadFromJsonAsync<NewsApiData>();
-
-                NewsGroup news = new NewsGroup();
-
-                news.Articles = new List<NewsItem>();
-
-                nd.Articles.ForEach(a => { news.Articles.Add(GetNewsItem(a)); });
-
-                return news;
-            }
-
-
-        
-
+       
 
         protected virtual void OnNewsAvailable(string c)
         {

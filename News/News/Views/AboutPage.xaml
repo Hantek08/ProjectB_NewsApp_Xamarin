@@ -3,26 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="News.Views.AboutPage"
              Title="About News">
-    <AbsoluteLayout>
-        <Image x:Name="NewsPhoto" Source="NewsPhoto" Opacity="0.6"></Image>
-        <StackLayout>
-        <Frame BackgroundColor="#0F2557" Padding="24" CornerRadius="0">
-            <Label Text="Project Part B" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="News in Xamarin.Forms" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="This part of the project is about making a simple UI in to the console news service made in project part A using Tabs." 
-               FontSize="16" Padding="30,0,30,0"/>
-        <Label Text="Select a news tab and give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label Text="Have fun!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Sahar Ali Abdou"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+    <AbsoluteLayout BackgroundColor="#37474F">
+        <Image AbsoluteLayout.LayoutBounds="0.5,0.5,800,800" x:Name="myGif" Source="myGif"  />
+        <StackLayout >
+            <Frame  BackgroundColor="#37474F" FlowDirection="LeftToRight" Padding="24" CornerRadius="1">
+                <Label Text="Welcome to my News App!"  HorizontalTextAlignment="End" TextColor="#FFF" FontSize="36"/>
+
+            </Frame>
+
+            <Label Text="Created by Hanna Tekie" VerticalTextAlignment="End" FlowDirection="RightToLeft"  FontSize="Small" FontAttributes="Italic" TextColor="#FFF"/>
+
+        </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

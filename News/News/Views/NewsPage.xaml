@@ -4,19 +4,23 @@
              x:Class="News.Views.NewsPage">
 
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#0F2557">
+        <StackLayout BackgroundColor="#37474F">
             <Button Text="Refresh"
-                    Clicked="refresh" TextColor="WhiteSmoke"/>
+                    Clicked="RefreshPage" TextColor="WhiteSmoke"/>
 
-            <Button Text="Connection" Clicked="Connection_Clicked" TextColor="WhiteSmoke"></Button>
+            
             <Label x:Name="runningStatusLabel"
                Text="All tasks are completed!"
                />
-            
-            <Label x:Name="categoryName" FontSize="Header" Scale="0.5" TextColor ="WhiteSmoke" ></Label>
 
-            <ActivityIndicator x:Name="SlowConnection"
-                               Color="#FFF"></ActivityIndicator>
+            <Label x:Name="headlines" VerticalOptions="Center" HorizontalOptions ="Center"  FontSize="Header" Scale="0.5" TextColor ="WhiteSmoke" ></Label>
+
+            <!--<ActivityIndicator x:Name="SlowConnection"
+                               Color="#FFF"></ActivityIndicator>-->
+            <AbsoluteLayout>
+                <ActivityIndicator x:Name="activityIndicator" Color="Yellow"  IsRunning="True" />
+            </AbsoluteLayout>
+            
                                    <ListView x:Name= "NewsListView"
                ItemTapped="NewsListView_ItemTapped" IsGroupingEnabled="False">
                 
@@ -24,9 +28,9 @@
                     
                     <DataTemplate>
                         <ViewCell>
-                            
-                            <Frame BackgroundColor="#2197C7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" WidthRequest="450" HeightRequest="200" CornerRadius="10" Margin="20,10,20,10">
-                                <Grid >
+
+                            <Frame BackgroundColor="#DEE4E7" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="10" Margin="20,10,20,10">
+                                <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
@@ -39,13 +43,11 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-
-                                    <Label Grid.Row="1" Grid.Column="1"  Text="{Binding DateTime, StringFormat='{0:dddd, dd MMMM yyyy hh:mm:ss tt}'}" FontSize="15" TextColor="#FFF"/>
-                                    <Label Grid.Row="2" Grid.Column="1"  Text="{Binding Title}" FontSize="20" FontAttributes="Bold" TextColor="#FFF"/>
-                                    <Label Grid.Row="3" Grid.Column="1"  Text="{Binding Description}" FontSize="15" TextColor="#FFF"/>
-                                    <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="4" WidthRequest="160" Source="{Binding UrlToImage}" />
-
-
+                                    <Label Grid.Row="0" Grid.Column="1"  Text="{Binding Title}" FontSize="20" TextColor="#222" VerticalOptions="Center"
+                                FontAttributes="Bold"/>
+                                    <Label Grid.Row="1" Grid.Column="1"  Text="{Binding DateTime, StringFormat='{0:dddd, dd MMMM yyyy hh:mm:ss tt}'}" FontSize="15" TextColor="#222"/>
+                                    <Label Grid.Row="2" Grid.Column="1"  Text="{Binding Description}" FontSize="15" TextColor="#222"/>
+                                    <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="4" WidthRequest="175" Source="{Binding UrlToImage}" />
                                 </Grid>
 
                             </Frame> 

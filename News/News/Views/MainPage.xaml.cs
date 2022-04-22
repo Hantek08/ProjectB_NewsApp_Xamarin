@@ -22,15 +22,7 @@ namespace News.Views
 
         }
 
- 
-       
-
     }
-
-
-
-
-
 
 
 }
