@@ -20,7 +20,6 @@ namespace News.Views
     {
         NewsService service;
         NewsGroup newsgroup;
-        bool isTaskRunning;
 
         public NewsPage()
         {
@@ -56,12 +55,10 @@ namespace News.Views
                  activityIndicator.IsRunning = false;
 
              });
-        }
+          }
 
             private async Task LoadNews()
             {
-
-
                 NewsCategory newsCat = (NewsCategory)Enum.Parse(typeof(NewsCategory), Title);
                 await Task.Run(() =>
                 {
@@ -82,15 +79,15 @@ namespace News.Views
                 await LoadNews();
                 activityIndicator.IsRunning = false;
 
-        }
+              }
 
-        //
-        private async void NewsListView_ItemTapped(object sender, ItemTappedEventArgs e)
-            {
-               var newsPage = (NewsItem)e.Item;
-                await Navigation.PushAsync(new ArticleView(newsPage.Url));
+        
+            private async void NewsListView_ItemTapped(object sender, ItemTappedEventArgs e)
+                {
+                   var newsPage = (NewsItem)e.Item;
+                    await Navigation.PushAsync(new ArticleView(newsPage.Url));
 
-        }
+            }
 
 
     }

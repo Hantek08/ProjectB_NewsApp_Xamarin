@@ -8,15 +8,9 @@
             <Button Text="Refresh"
                     Clicked="RefreshPage" TextColor="WhiteSmoke"/>
 
-            
-            <Label x:Name="runningStatusLabel"
-               Text="All tasks are completed!"
-               />
 
             <Label x:Name="headlines" VerticalOptions="Center" HorizontalOptions ="Center"  FontSize="Header" Scale="0.5" TextColor ="WhiteSmoke" ></Label>
 
-            <!--<ActivityIndicator x:Name="SlowConnection"
-                               Color="#FFF"></ActivityIndicator>-->
             <AbsoluteLayout>
                 <ActivityIndicator x:Name="activityIndicator" Color="Yellow"  IsRunning="True" />
             </AbsoluteLayout>
